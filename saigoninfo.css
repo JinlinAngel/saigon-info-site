@@ -1,0 +1,483 @@
+@font-face {
+  font-family: 'Lora';
+  src: url('./path-to-your-fonts-folder/Lora-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font to all text elements */
+body,
+button,
+input,
+textarea {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  /* Adjust the font size as needed */
+}
+
+.modal-custom .modal-content {
+  background-color: #006400;
+  /* Dunkelgrün */
+  border: 2px solid #D4AF37;
+  /* Goldener Rand */
+  color: #D4AF37;
+  /* Goldener Text */
+}
+
+h1,
+h2 {
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 10vh;
+  /* Responsive height relative to the viewport */
+  padding: 0 1rem;
+  /* Use rem units for padding for better scaling */
+  z-index: 5;
+}
+
+.navbar-custom {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to top, #000080, #006400 25%);
+  border-top: 2px solid #D4AF37;
+  /* Goldener Rand */
+  height: 10vh;
+  padding: 0 1rem;
+  z-index: 5;
+  padding-bottom: 10px;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+  color: #D4AF37;
+  /* Gold */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-custom {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(to bottom, #D4AF37, #006400 25%);
+  border-bottom: 2px solid #D4AF37;
+  /* Goldener Rand */
+  width: 100vw;
+  height: auto;
+  color: #D4AF37;
+  /* Gold */
+}
+
+.navBarNav {
+  background-color: #fff;
+  /* Adjust padding as needed */
+  border: 1px solid #000;
+}
+
+.navbar-brand img {
+  height: 8vh;
+  /* Scale the image relative to the viewport height */
+  width: auto;
+  /* Maintain aspect ratio */
+}
+
+.navbar-nav {
+  justify-content: flex-end;
+}
+
+.carousel-inner {
+  top: 5%;
+}
+
+/* Carousel styles */
+#saigonInfoSlides {
+  position: relative;
+  height: 80vh;
+  /* 80% of the viewport height */
+  z-index: 3;
+  /* Ensure carousel is above the skyline but below the controls */
+}
+
+.complete_motorbike {
+  position: absolute;
+  left: 2vw;
+  bottom: 0;
+  max-height: 40vh;
+  /* Adjust height to fit within the carousel */
+}
+
+.wheel_container {
+  position: absolute;
+  left: 6%;
+  bottom: 4%;
+  width: 100%;
+  height: 14vh;
+  /* Adjust height to fit within the carousel */
+}
+
+#motorbike-wheel-1 {
+  position: absolute;
+  height: 100%;
+  /* Maintain aspect ratio */
+  width: auto;
+  /* Maintain aspect ratio */
+  z-index: 2;
+
+}
+
+#motorbike-wheel-2 {
+  left: 55%;
+  position: absolute;
+  width: auto;
+  /* Maintain aspect ratio */
+  max-height: 100%;
+  /* Adjust height to fit within the carousel */
+  z-index: 2;
+}
+
+/* Motorbike positioning */
+#motorbike {
+  position: relative;
+  width: auto;
+  /* Maintain aspect ratio */
+  max-height: 40vh;
+  /* Adjust height to fit within the carousel */
+  z-index: 3;
+  /* Above carousel items and motorbike wheel */
+}
+
+/* Carousel controls for clickability */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 5;
+  /* Ensure controls are above all */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  /* Ensure display */
+  width: 48px;
+  /* Consistent size */
+  height: 48px;
+  /* Consistent size */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Road container */
+.road-container {
+  position: relative;
+  /* Change from absolute to relative */
+  bottom: 0;
+  left: -4vw;
+  width: 120vw;
+  height: 50px;
+  /* Adjust the height as needed */
+  background: #333;
+  /* Dark asphalt color */
+  z-index: 2;
+  /* Ensure it's above the skyline */
+}
+
+/* Lane markings using pseudo-element for animation */
+.lane-markings::before {
+  content: '';
+  position: absolute;
+  top: 35%;
+  /* Center vertically in the road */
+  left: 0;
+  width: 300%;
+  /* Width should be large enough to allow a continuous scroll */
+  height: 2px;
+  /* Lane marking thickness */
+  background: repeating-linear-gradient(to right,
+      #fff,
+      #fff 10px,
+      transparent 10px,
+      transparent 20px
+      /* Adjust the spacing and size as needed */
+    );
+}
+
+/* Sidewalks */
+.sidewalk-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 110vw;
+  height: 10px;
+  /* Height of the sidewalk */
+  background: #838383;
+  /* Sidewalk color */
+}
+
+.sidewalk-top {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 110vw;
+  height: 5px;
+  /* Height of the sidewalk */
+  background: #838383;
+  /* Sidewalk color */
+}
+
+/* Animated lane markings */
+.animate-stripes::before {
+  animation: move-stripes 1s linear infinite;
+}
+
+/* Keyframes for moving lane markings */
+@keyframes move-stripes {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+    /* Move the stripes to the left; the width of the pseudo-element */
+  }
+}
+
+/* Skyline container directly within container-fluid for better control */
+.skyline-container {
+  position: absolute;
+  bottom: 0;
+  /* Starts above the road */
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Adjust to control skyline height */
+  z-index: 1;
+  /* Below the road and motorbike */
+  background: linear-gradient(to bottom, #000080, #D4AF37 70%);
+}
+
+.container-fluid {
+  height: auto;
+  /* Instead of a fixed height, it could be set to auto */
+  min-height: 80vh;
+  /* Ensure it takes at least 80vh of height */
+}
+
+footer {
+  position: relative;
+  /* or 'static' which is the default */
+  z-index: 10;
+  background: #f8f9fa;
+  /* Or any color that makes it stand out */
+  width: 100vw;
+  height: auto;
+  /* Or specify a height */
+}
+
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.building {
+  position: absolute;
+  bottom: 0;
+  /* Align buildings to the bottom of the container */
+  background: #333;
+  /* Building color */
+  z-index: 1;
+}
+
+.window {
+  position: absolute;
+  background: #ffd700;
+  /* Window color */
+  border: 1px solid #333;
+  /* Optional: border to distinguish the windows */
+  z-index: 2;
+}
+
+.blink {
+  animation: blink-animation 2s infinite ease-in-out;
+}
+
+@keyframes blink-animation {
+
+  0%,
+  100% {
+    background-color: #ffd700;
+  }
+
+  /* Yellow window */
+  50% {
+    background-color: #777777;
+  }
+
+  /* Building color to simulate the window "turning off" */
+}
+
+/* New adjustments for carousel item layout */
+.carousel-item {
+  position: relative;
+  /* Adjust positioning for children */
+  height: 80vh;
+  /* Maintain a consistent height */
+}
+
+/* Adjustments for gallery container layout */
+.gallery-wrapper {
+  left: 10vw;
+  width: 40%;
+  /* Width as per requirement */
+  height: 60%;
+  /* Height as per requirement */
+  float: left;
+  /* Float to the left side */
+  position: relative;
+  /* Relative positioning for inner content */
+}
+
+.info-content {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  position: relative;
+  /* Position the content within the gallery wrapper */
+  color: #D4AF37;
+  /* Goldener Text */
+  right: 10vw;
+  width: 40%;
+  /* Width as per requirement */
+  height: 60%;
+  /* Height as per requirement */
+  float: right;
+  /* Float to the right side */
+  padding: 0 15px;
+  /* Padding for text content */
+  overflow-x: hidden;
+  /* Enable horizontal scrolling */
+  overflow-y: scroll;
+  /* Hide vertical scrollbar */
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Creates as many columns as can fit */
+  grid-auto-rows: minmax(150px, auto);
+  /* Sets a minimum row size and auto for content */
+  gap: 10px;
+  /* Space between items */
+  width: 100%;
+  /* Full width of the gallery wrapper */
+  height: 100%;
+  /* Full height of the gallery wrapper */
+  overflow-x: hidden;
+  /* Enable horizontal scrolling */
+  overflow-y: scroll;
+  /* Hide vertical scrollbar */
+}
+
+.gallery-container img {
+  width: 100%;
+  /* Width will fill the cell */
+  height: 100%;
+  /* Height will fill the cell */
+  object-fit: contain;
+  /* Ensures full image is visible */
+  margin: auto;
+  /* Centers the image within the cell */
+}
+
+/* Clearfix for the floated elements */
+.carousel-item::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.modal-dialog {
+  max-width: fit-content;
+  /* This will make the dialog only as wide as the content */
+  margin: auto;
+  /* Center the modal on the page */
+}
+
+.modal-content {
+  width: auto;
+  /* Let the content dictate the width */
+  height: auto;
+  /* Let the content dictate the height */
+}
+
+.modal-body img {
+  max-width: 100%;
+  /* Ensure the image is not larger than the screen */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.gallery-image:hover {
+  cursor: zoom-in;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  pointer-events: none;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  pointer-events: auto;
+}
+
+.dark-mode {
+  background-color: #121212;
+  /* Dark background */
+  color: #ffffff;
+  /* Light text */
+}
+
+body.dark-mode .navbar-custom,
+body.dark-mode .footer-custom,
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-custom .navbar-nav .nav-link {
+  background-color: #000;
+  background: linear-gradient(to top, #000000, #000000 25%);
+  /* Verlauf von Schwarz zu Dunkelgrün */
+  color: white;
+  border: none;
+}
+
+body.dark-mode .modal-custom .modal-content {
+  background-color: #000;
+  color: white;
+  border: none;
+}
+
+body.dark-mode .skyline-container {
+  background: linear-gradient(to top, #D4AF37, #000000 30%);
+  color: white;
+  border: none;
+}
+
+body.dark-mode .info-content {
+  color: white;
+  border: none;
+}
+
+@keyframes rotateWheel {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
+}
